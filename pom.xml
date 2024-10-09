@@ -46,6 +46,11 @@
 			<artifactId>telegrambots-spring-boot-starter</artifactId>
 			<version>${telegrambots.spring.boot.starter}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>32.1.2-jre</version>
+		</dependency>
 	</dependencies>
 
 	<build>
