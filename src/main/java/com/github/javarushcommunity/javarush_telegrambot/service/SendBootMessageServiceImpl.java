@@ -21,6 +21,7 @@ public class SendBootMessageServiceImpl implements SendBootMesageService {
     public void execute(String chatId, String message) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
+        sendMessage.enableHtml(true);
         sendMessage.setText(message);
         javaRushTelegramBot.execute(sendMessage);
     }

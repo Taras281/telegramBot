@@ -11,7 +11,6 @@ public class NoCommand implements Command {
         this.sendBootMesageService = sendBootMesageService;
     }
 
-
     @Override
     public void execute(Update update) throws TelegramApiException {
         sendBootMesageService.execute(update.getMessage().getChatId().toString(), no);

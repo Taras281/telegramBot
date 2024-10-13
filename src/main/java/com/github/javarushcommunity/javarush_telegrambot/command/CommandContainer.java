@@ -15,11 +15,13 @@ public class CommandContainer {
                 .put(START.getCommandName(), new StartCommand(sbms))
                 .put(STOP.getCommandName(), new StopCommand(sbms))
                 .put(NO.getCommandName(), new NoCommand(sbms))
+                .put(HELP.getCommandName(), new HelpCommand(sbms))
                 .build();
         this.uncknowCommand = new UncknowCommand(sbms);
     }
 
     public Command retrieveCommand(String commandName){
+
         return commandMap.getOrDefault(commandName, uncknowCommand);
     }
 }
