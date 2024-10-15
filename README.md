@@ -12,4 +12,6 @@ $ bash start.sh ${bot_username} ${bot_token}
 
 That's all
 команда для запуска bash скрпта:
-bash start.sh JRTESTTARASbot 7423140104:AAESG1FDbFsaKM2EcNKwBA1YpOQa5Uq7Ccc   
+bash start.sh JRTESTTARASbot 7423140104:AAESG1FDbFsaKM2EcNKwBA1YpOQa5Uq7Ccc  
+
+pull git from bash
