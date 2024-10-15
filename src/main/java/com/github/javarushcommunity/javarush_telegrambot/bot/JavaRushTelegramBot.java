@@ -2,15 +2,19 @@ package com.github.javarushcommunity.javarush_telegrambot.bot;
 
 import com.github.javarushcommunity.javarush_telegrambot.command.CommandContainer;
 import com.github.javarushcommunity.javarush_telegrambot.service.SendBootMessageServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import javax.annotation.PostConstruct;
+
 import static com.github.javarushcommunity.javarush_telegrambot.command.CommandName.NO;
 
 
+@Slf4j
 @Component
 public class JavaRushTelegramBot extends TelegramLongPollingBot {
     public static String COMMAND_PREFIX = "/";
@@ -18,7 +22,10 @@ public class JavaRushTelegramBot extends TelegramLongPollingBot {
     private String nameBot;
     @Value("${bot.token}")
     private String token;
-
+    @PostConstruct
+    private void l(){
+        log.info("+++ token " + token);
+    }
     private final CommandContainer commandContainer;
 
     public JavaRushTelegramBot() {
