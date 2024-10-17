@@ -25,6 +25,7 @@ public class JavaRushTelegramBot extends TelegramLongPollingBot {
     @PostConstruct
     private void l(){
         log.info("+++ token " + token);
+        log.info("+++ nameot " + nameBot);
     }
     private final CommandContainer commandContainer;
 
