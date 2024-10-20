@@ -3,6 +3,8 @@ package com.github.javarushcommunity.javarush_telegrambot.command;
 import com.github.javarushcommunity.javarush_telegrambot.bot.JavaRushTelegramBot;
 import com.github.javarushcommunity.javarush_telegrambot.service.SendBootMesageService;
 import com.github.javarushcommunity.javarush_telegrambot.service.SendBootMessageServiceImpl;
+import com.github.javarushcommunity.javarush_telegrambot.service.TelegramUserServices;
+import com.github.javarushcommunity.javarush_telegrambot.service.TelegramUserServicesImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -13,6 +15,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 abstract class AstractCommandTest {
     SendBootMesageService sendBootMesageService;
+    TelegramUserServices telegramUserServices;
     JavaRushTelegramBot javaRushTelegramBot;
     Command Command;
     abstract Command getCommand();
@@ -22,8 +25,9 @@ abstract class AstractCommandTest {
     @BeforeEach
     void setUp() {
         javaRushTelegramBot = Mockito.mock(JavaRushTelegramBot.class);
+        telegramUserServices = Mockito.mock(TelegramUserServices.class);
         sendBootMesageService = new SendBootMessageServiceImpl(javaRushTelegramBot);
-        Command = new StartCommand(sendBootMesageService);
+        //Command = new StartCommand(sendBootMesageService, telegramUserServices);
     }
     @Test
     public void should(){

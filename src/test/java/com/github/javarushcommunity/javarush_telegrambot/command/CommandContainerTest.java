@@ -1,6 +1,7 @@
 package com.github.javarushcommunity.javarush_telegrambot.command;
 
 import com.github.javarushcommunity.javarush_telegrambot.service.SendBootMesageService;
+import com.github.javarushcommunity.javarush_telegrambot.service.TelegramUserServices;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,10 +14,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class CommandContainerTest {
     SendBootMesageService sendBootMesageService;
     CommandContainer commandContainer;
+    TelegramUserServices tus;
     @BeforeEach
     void init(){
         sendBootMesageService = Mockito.mock(SendBootMesageService.class);
-        commandContainer = new CommandContainer(sendBootMesageService);
+        tus=Mockito.mock(TelegramUserServices.class);
+        commandContainer = new CommandContainer(sendBootMesageService, tus);
     }
     @Test
     public void shouldGetAllExistingCommands(){

@@ -2,6 +2,8 @@ package com.github.javarushcommunity.javarush_telegrambot.bot;
 
 import com.github.javarushcommunity.javarush_telegrambot.command.CommandContainer;
 import com.github.javarushcommunity.javarush_telegrambot.service.SendBootMessageServiceImpl;
+import com.github.javarushcommunity.javarush_telegrambot.service.TelegramUserServices;
+import com.github.javarushcommunity.javarush_telegrambot.service.TelegramUserServicesImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -27,10 +29,10 @@ public class JavaRushTelegramBot extends TelegramLongPollingBot {
         log.info("+++ token " + token);
         log.info("+++ nameot " + nameBot);
     }
-    private final CommandContainer commandContainer;
+    private  CommandContainer commandContainer;
 
-    public JavaRushTelegramBot() {
-        this.commandContainer = new CommandContainer(new SendBootMessageServiceImpl(this));
+    public JavaRushTelegramBot(TelegramUserServices telegramUserServices) {
+        this.commandContainer = new CommandContainer(new SendBootMessageServiceImpl(this), telegramUserServices);
     }
     @Override
     public String getBotUsername() {
