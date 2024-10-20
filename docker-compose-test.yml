@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  jrtb:
+    depends_on:
+      - jrtb-db
+    build:
+      context: .
+    environment:
+      BOT_NAME: ${BOT_NAME}
+      BOT_TOKEN: ${BOT_TOKEN}
+    restart: always
+  jrtb-db:
+    image: mysql
+    restart: always
+    container_name: dev-jrtb-db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: "dev_jrtb_dbT"
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
